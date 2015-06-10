@@ -34,6 +34,9 @@ switch (os.hostname()) {
     case 'jura-pc':
         require('./local.js');
         break;
+    case 'group.profsoyuz.pro':
+        require('./prod.js');
+        break;
     default:
         console.log('Unknown hostname "' + os.hostname() + '"');
         process.exit(1);
