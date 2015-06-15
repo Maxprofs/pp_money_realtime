@@ -14,6 +14,10 @@ Money.config = {
         toFile: false
     },
 
+    server: {
+        secure: false
+    },
+
     db: {
     },
 

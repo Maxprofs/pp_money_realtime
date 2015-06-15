@@ -2,8 +2,14 @@ require('./config/config.js');
 require('./modules/db.js');
 require('./modules/redis.js');
 
+var fs = require('fs');
 var logger = require('./modules/logging.js').logger;
-var server = require('http').createServer();
+
+if (Money.config.server.secure) {
+    var server = require('https').createServer(Money.config.server.options);
+} else {
+    var server = require('http').createServer(Money.config.server.options);
+}
 var io = require('socket.io')(server, Money.config.io.serverOptions);
 
 require('./sockets/base.js')(io);
